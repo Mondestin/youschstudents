@@ -14,20 +14,52 @@ export type Product = {
 //Info: The following data is used for the sidebar navigation and Cmd K bar.
 export const navItems: NavItem[] = [
   {
-    title: 'Dashboard',
-    url: '/',
-    icon: 'dashboard',
+    title: 'Emploi du temps',
+    url: '/dashboard/etudiants/emploi-du-temps',
+    icon: 'calendar',
     isActive: false,
-    shortcut: ['d', 'd'],
-    items: [] // Empty array as there are no child items for Dashboard
+    shortcut: ['e', 't'],
+    items: []
   },
   {
-    title: 'Users',
-    url: '/dashboard/users',
-    icon: 'users',
-    shortcut: ['u', 'u'],
+    title: 'Notes',
+    url: '/dashboard/etudiants/notes',
+    icon: 'school',
     isActive: false,
-    items: [] // No child items
+    shortcut: ['n', 'n'],
+    items: []
+  },
+  {
+    title: 'Rapport de paiements',
+    url: '/dashboard/etudiants/rapport-paiements',
+    icon: 'reportMoney',
+    isActive: false,
+    shortcut: ['r', 'p'],
+    items: []
+  },
+  {
+    title: 'Présence',
+    url: '/dashboard/etudiants/presence',
+    icon: 'clipboardCheck',
+    isActive: false,
+    shortcut: ['p', 'p'],
+    items: []
+  },
+  {
+    title: 'Mes cours',
+    url: '/dashboard/mes-cours',
+    icon: 'book',
+    isActive: false,
+    shortcut: ['m', 'c'],
+    items: []
+  },
+  {
+    title: 'Profil',
+    url: '/dashboard/profil',
+    icon: 'user2',
+    isActive: false,
+    shortcut: ['p', 'r'],
+    items: []
   }
 ];
 

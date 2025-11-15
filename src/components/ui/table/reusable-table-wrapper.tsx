@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { ColumnDef } from '@tanstack/react-table';
 import { parseAsInteger, useQueryState } from 'nuqs';
 import { useDataTable } from '@/hooks/use-data-table';
@@ -23,6 +24,7 @@ interface ReusableTableWrapperProps<TData, TValue> {
   };
   onSearch?: (value: string) => void;
   onExport?: () => void;
+  additionalFilters?: React.ReactNode;
   containerClassName?: string;
   tableContainerClassName?: string;
 }
@@ -35,10 +37,11 @@ export function ReusableTableWrapper<TData, TValue>({
   showAlternatingRows = true,
   searchPlaceholder = 'Rechercher...',
   exportButtonText = 'Exporter ce tableau',
-  exportButtonColor = '#01631b',
+  exportButtonColor,
   paginationText,
   onSearch,
   onExport,
+  additionalFilters,
   containerClassName = 'rounded-lg border shadow-sm',
   tableContainerClassName = 'bg-white rounded-lg border-t-2'
 }: ReusableTableWrapperProps<TData, TValue>) {
@@ -46,11 +49,22 @@ export function ReusableTableWrapper<TData, TValue>({
     'perPage',
     parseAsInteger.withDefault(defaultPageSize)
   );
+  const [page] = useQueryState(
+    'page',
+    parseAsInteger.withDefault(1)
+  );
 
   const pageCount = Math.ceil(totalItems / pageSize);
 
+  // Manually paginate the data for client-side pagination
+  const paginatedData = React.useMemo(() => {
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    return data.slice(startIndex, endIndex);
+  }, [data, page, pageSize]);
+
   const { table } = useDataTable({
-    data,
+    data: paginatedData,
     columns,
     pageCount: pageCount,
     shallow: false,
@@ -67,18 +81,19 @@ export function ReusableTableWrapper<TData, TValue>({
           exportButtonColor={exportButtonColor}
           onSearch={onSearch}
           onExport={onExport}
+          additionalFilters={additionalFilters}
         />
         <div
           className={tableContainerClassName}
-          style={
-            exportButtonColor
-              ? { borderTopColor: exportButtonColor, borderTopWidth: '2px' }
-              : undefined
-          }
+          style={{
+            borderTopColor: exportButtonColor || 'var(--primary)',
+            borderTopWidth: '2px'
+          }}
         >
           <ReusableDataTable
             table={table}
             showAlternatingRows={showAlternatingRows}
+            totalItems={totalItems}
             paginationText={paginationText}
           />
         </div>

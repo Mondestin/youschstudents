@@ -28,13 +28,8 @@ body {
 
 .theme-default,
 .theme-default-scaled {
-  --primary: var(--color-neutral-600);
-  --primary-foreground: var(--color-neutral-50);
-
-  @variant dark {
-    --primary: var(--color-neutral-500);
-    --primary-foreground: var(--color-neutral-50);
-  }
+  /* Use the purple primary color from globals.css */
+  /* --primary is already set in :root, no override needed */
 }
 
 .theme-blue,

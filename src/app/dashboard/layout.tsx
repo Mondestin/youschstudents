@@ -7,8 +7,8 @@ import { cookies } from 'next/headers';
 import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Next Shadcn Dashboard Starter',
-  description: 'Basic dashboard with Next.js and Shadcn'
+  title: 'Tableau de bord - Étudiants',
+  description: 'Tableau de bord de gestion des étudiants'
 };
 
 export default async function DashboardLayout({

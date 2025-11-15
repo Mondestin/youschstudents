@@ -38,7 +38,12 @@ import {
   IconUsers,
   IconShieldCheck,
   IconBug,
-  IconMenu
+  IconMenu,
+  IconCalendar,
+  IconSchool,
+  IconReportMoney,
+  IconClipboardCheck,
+  IconBook
 } from '@tabler/icons-react';
 
 export type Icon = ComponentType<IconProps>;
@@ -81,5 +86,10 @@ export const Icons = {
   users: IconUsers,
   shield: IconShieldCheck,
   bug: IconBug,
-  question: IconHelpCircle
+  question: IconHelpCircle,
+  calendar: IconCalendar,
+  school: IconSchool,
+  reportMoney: IconReportMoney,
+  clipboardCheck: IconClipboardCheck,
+  book: IconBook
 };

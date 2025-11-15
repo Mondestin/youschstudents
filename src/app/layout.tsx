@@ -16,8 +16,13 @@ const META_THEME_COLORS = {
 };
 
 export const metadata: Metadata = {
-  title: 'Next Shadcn',
-  description: 'Basic dashboard with Next.js and Shadcn'
+  title: 'Yousch Students',
+  description: 'Student portal for Yousch',
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png'
+  }
 };
 
 export const viewport: Viewport = {
@@ -36,6 +41,7 @@ export default async function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/logo.png" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

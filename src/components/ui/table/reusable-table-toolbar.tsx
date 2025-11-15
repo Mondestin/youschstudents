@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { IconSearch, IconDownload } from '@tabler/icons-react';
@@ -13,15 +14,17 @@ interface ReusableTableToolbarProps<TData> {
   exportButtonColor?: string;
   onSearch?: (value: string) => void;
   onExport?: () => void;
+  additionalFilters?: React.ReactNode;
 }
 
 export function ReusableTableToolbar<TData>({
   table,
   searchPlaceholder = 'Rechercher...',
   exportButtonText = 'Exporter ce tableau',
-  exportButtonColor = '#01631b',
+  exportButtonColor,
   onSearch,
-  onExport
+  onExport,
+  additionalFilters
 }: ReusableTableToolbarProps<TData>) {
   const [searchValue, setSearchValue] = useState('');
 
@@ -52,22 +55,25 @@ export function ReusableTableToolbar<TData>({
           className='pl-8'
         />
       </div>
+      {additionalFilters && (
+        <div className='flex items-center gap-2'>
+          {additionalFilters}
+        </div>
+      )}
       <div className='flex gap-2 ml-auto'>
         <Button
           onClick={handleExport}
           className='text-white mr-4'
           style={{
-            backgroundColor: exportButtonColor
+            backgroundColor: exportButtonColor || 'var(--primary)'
           }}
           onMouseEnter={(e) => {
-            if (exportButtonColor) {
-              e.currentTarget.style.backgroundColor = `${exportButtonColor}90`;
-            }
+            const color = exportButtonColor || 'var(--primary)';
+            e.currentTarget.style.backgroundColor = `${color}90`;
           }}
           onMouseLeave={(e) => {
-            if (exportButtonColor) {
-              e.currentTarget.style.backgroundColor = exportButtonColor;
-            }
+            const color = exportButtonColor || 'var(--primary)';
+            e.currentTarget.style.backgroundColor = color;
           }}
         >
           <IconDownload className='h-4 w-4 mr-2' />

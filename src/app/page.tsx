@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
 export default async function Page() {
-  // Redirect to dashboard overview
-  redirect('/dashboard/overview');
+  // Redirect to timetable (emploi du temps)
+  redirect('/dashboard/etudiants/emploi-du-temps');
 }

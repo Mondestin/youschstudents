@@ -15,6 +15,7 @@ import { ReusableTablePagination } from './reusable-table-pagination';
 interface ReusableDataTableProps<TData> extends React.ComponentProps<'div'> {
   table: TanstackTable<TData>;
   showAlternatingRows?: boolean;
+  totalItems?: number;
   paginationText?: {
     showing?: string;
     to?: string;
@@ -26,6 +27,7 @@ interface ReusableDataTableProps<TData> extends React.ComponentProps<'div'> {
 export function ReusableDataTable<TData>({
   table,
   showAlternatingRows = true,
+  totalItems,
   paginationText = {
     showing: 'Montrant',
     to: 'à',
@@ -92,7 +94,7 @@ export function ReusableDataTable<TData>({
           </TableBody>
         </Table>
       </div>
-      <ReusableTablePagination table={table} paginationText={paginationText} />
+      <ReusableTablePagination table={table} totalItems={totalItems} paginationText={paginationText} />
     </>
   );
 }

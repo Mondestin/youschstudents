@@ -2,7 +2,6 @@
 import { SidebarTrigger } from '../ui/sidebar';
 import { Separator } from '../ui/separator';
 import { UserNav } from './user-nav';
-import { ModeToggle } from './ThemeToggle/theme-toggle';
 
 export default function Header() {
   return (
@@ -11,7 +10,6 @@ export default function Header() {
         <SidebarTrigger className='-ml-1' />
         <Separator orientation='vertical' className='h-6' />
         <div className='ms-auto flex items-center space-x-4'>
-          <ModeToggle />
           <UserNav />
         </div>
       </div>

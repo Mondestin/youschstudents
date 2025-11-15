@@ -17,6 +17,7 @@ import { ChevronsLeft, ChevronsRight } from 'lucide-react';
 
 interface ReusableTablePaginationProps<TData> {
   table: Table<TData>;
+  totalItems?: number;
   paginationText?: {
     showing?: string;
     to?: string;
@@ -27,6 +28,7 @@ interface ReusableTablePaginationProps<TData> {
 
 export function ReusableTablePagination<TData>({
   table,
+  totalItems,
   paginationText = {
     showing: 'Montrant',
     to: 'à',
@@ -36,7 +38,7 @@ export function ReusableTablePagination<TData>({
 }: ReusableTablePaginationProps<TData>) {
   const pageIndex = table.getState().pagination.pageIndex;
   const pageSize = table.getState().pagination.pageSize;
-  const totalRows = table.getFilteredRowModel().rows.length;
+  const totalRows = totalItems ?? table.getFilteredRowModel().rows.length;
   const startRow = pageIndex * pageSize + 1;
   const endRow = Math.min((pageIndex + 1) * pageSize, totalRows);
 

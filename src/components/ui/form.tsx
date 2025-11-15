@@ -8,7 +8,6 @@ import {
   FormProvider,
   useFormContext,
   UseFormReturn,
-  useFormState,
   type ControllerProps,
   type FieldPath,
   type FieldValues
@@ -17,25 +16,22 @@ import {
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 
-const Form = ({
+function Form<TFieldValues extends FieldValues = FieldValues>({
   children,
-  onSubmit,
   form,
-  className
+  ...props
 }: {
   children: React.ReactNode;
-  onSubmit: (data: any) => void;
-  form: UseFormReturn<any, any, undefined>;
-  className?: string;
-}) => {
+  form: UseFormReturn<TFieldValues>;
+} & React.ComponentProps<'form'>) {
   return (
     <FormProvider {...form}>
-      <form onSubmit={onSubmit} className={className}>
+      <form {...props}>
         {children}
       </form>
     </FormProvider>
   );
-};
+}
 
 type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
@@ -64,23 +60,36 @@ const FormField = <
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
-  const { getFieldState } = useFormContext();
-  const formState = useFormState({ name: fieldContext.name });
-  const fieldState = getFieldState(fieldContext.name, formState);
+  const form = useFormContext();
 
   if (!fieldContext) {
     throw new Error('useFormField should be used within <FormField>');
   }
 
   const { id } = itemContext;
+  const fieldName = fieldContext.name;
+  
+  // Manually get field state from form state with safety checks
+  const formState = form?.formState || {};
+  const errors = formState.errors || {};
+  const dirtyFields = formState.dirtyFields || {};
+  const touchedFields = formState.touchedFields || {};
+  
+  const error = errors[fieldName];
+  const invalid = !!error;
+  const isDirty = !!dirtyFields[fieldName];
+  const isTouched = !!touchedFields[fieldName];
 
   return {
     id,
-    name: fieldContext.name,
+    name: fieldName,
     formItemId: `${id}-form-item`,
     formDescriptionId: `${id}-form-item-description`,
     formMessageId: `${id}-form-item-message`,
-    ...fieldState
+    error,
+    invalid,
+    isDirty,
+    isTouched
   };
 };
 
