@@ -63,17 +63,17 @@ export function ReusableTableToolbar<TData>({
       <div className='flex gap-2 ml-auto'>
         <Button
           onClick={handleExport}
-          className='text-white mr-4'
+          className='text-white mr-4 transition-colors'
           style={{
-            backgroundColor: exportButtonColor || 'var(--primary)'
+            backgroundColor: exportButtonColor || 'var(--primary-light)'
           }}
           onMouseEnter={(e) => {
-            const color = exportButtonColor || 'var(--primary)';
-            e.currentTarget.style.backgroundColor = `${color}90`;
+            // Use darker primary color on hover for better contrast
+            e.currentTarget.style.backgroundColor = exportButtonColor || 'var(--primary)';
           }}
           onMouseLeave={(e) => {
-            const color = exportButtonColor || 'var(--primary)';
-            e.currentTarget.style.backgroundColor = color;
+            // Return to lighter primary color
+            e.currentTarget.style.backgroundColor = exportButtonColor || 'var(--primary-light)';
           }}
         >
           <IconDownload className='h-4 w-4 mr-2' />

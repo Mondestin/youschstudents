@@ -33,7 +33,7 @@ export const paymentsColumns: ColumnDef<Payment>[] = [
     header: 'Montant',
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue('amount'));
-      return <div className="font-semibold">{amount.toLocaleString('fr-FR')} €</div>;
+      return <div className="font-semibold">{amount.toLocaleString('fr-FR')} FCFA</div>;
     }
   },
   {

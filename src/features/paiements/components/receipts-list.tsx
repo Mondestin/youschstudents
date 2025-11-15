@@ -76,7 +76,7 @@ export default function ReceiptsList({ payments }: ReceiptsListProps) {
                 </div>
                 <div className="text-right">
                   <div className="font-semibold text-lg">
-                    {payment.amount.toLocaleString('fr-FR')} €
+                    {payment.amount.toLocaleString('fr-FR')} FCFA
                   </div>
                   <Badge variant="outline" className="mt-1 bg-green-50 text-green-700 border-green-200">
                     Payé

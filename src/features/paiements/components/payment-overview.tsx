@@ -21,7 +21,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
         <CardContent className="px-4 pt-0">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">
-              {stats.totalPaid.toLocaleString('fr-FR')} €
+              {stats.totalPaid.toLocaleString('fr-FR')} FCFA
             </span>
             <IconCheck className="h-8 w-8 text-muted-foreground" />
           </div>
@@ -39,7 +39,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
         <CardContent className="px-4 pt-0">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">
-              {stats.totalPending.toLocaleString('fr-FR')} €
+              {stats.totalPending.toLocaleString('fr-FR')} FCFA
             </span>
             <IconClock className="h-8 w-8 text-muted-foreground" />
           </div>
@@ -57,7 +57,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
         <CardContent className="px-4 pt-0">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">
-              {stats.totalOverdue.toLocaleString('fr-FR')} €
+              {stats.totalOverdue.toLocaleString('fr-FR')} FCFA
             </span>
             <IconAlertCircle className="h-8 w-8 text-muted-foreground" />
           </div>
@@ -77,7 +77,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
             <>
               <div className="flex items-baseline justify-between">
                 <span className="text-2xl font-bold">
-                  {stats.nextPayment.amount.toLocaleString('fr-FR')} €
+                  {stats.nextPayment.amount.toLocaleString('fr-FR')} FCFA
                 </span>
                 <IconCreditCard className="h-8 w-8 text-muted-foreground" />
               </div>

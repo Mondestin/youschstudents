@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, getDay } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -31,24 +31,52 @@ const statusLabels = {
 };
 
 export default function AttendanceCalendar({ records }: AttendanceCalendarProps) {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState<Date | null>(null);
+  const [mounted, setMounted] = useState(false);
 
-  const monthStart = startOfMonth(currentDate);
-  const monthEnd = endOfMonth(currentDate);
-  const daysInMonth = eachDayOfInterval({ start: monthStart, end: monthEnd });
-  const firstDayOfWeek = getDay(monthStart);
+  // Set date only on client to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+    setCurrentDate(new Date());
+  }, []);
 
   const getRecordsForDate = (date: Date) => {
     return records.filter(record => isSameDay(new Date(record.date), date));
   };
 
   const handlePreviousMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+    if (currentDate) {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+    }
   };
 
   const handleNextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+    if (currentDate) {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+    }
   };
+
+  // Don't render until mounted to avoid hydration mismatch
+  if (!mounted || !currentDate) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Calendrier de présence</CardTitle>
+          <CardDescription>Vue mensuelle de votre présence</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-center h-64">
+            <div className="text-muted-foreground">Chargement...</div>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  const monthStart = startOfMonth(currentDate);
+  const monthEnd = endOfMonth(currentDate);
+  const daysInMonth = eachDayOfInterval({ start: monthStart, end: monthEnd });
+  const firstDayOfWeek = getDay(monthStart);
 
   return (
     <Card>

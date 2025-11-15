@@ -86,7 +86,7 @@ export function ReusableTableWrapper<TData, TValue>({
         <div
           className={tableContainerClassName}
           style={{
-            borderTopColor: exportButtonColor || 'var(--primary)',
+            borderTopColor: exportButtonColor || 'var(--primary-light)',
             borderTopWidth: '2px'
           }}
         >

@@ -27,42 +27,42 @@ import { toast } from 'sonner';
 // Form schema - All fields are required and validated
 const editProfileSchema = z.object({
   phone: z
-    .string({ required_error: 'Le numéro de téléphone est requis' })
+    .string()
     .trim()
     .min(1, { message: 'Le numéro de téléphone est requis' }),
   address: z.object({
     street: z
-      .string({ required_error: 'La rue est requise' })
+      .string()
       .trim()
       .min(1, { message: 'La rue est requise' }),
     city: z
-      .string({ required_error: 'La ville est requise' })
+      .string()
       .trim()
       .min(1, { message: 'La ville est requise' }),
     postalCode: z
-      .string({ required_error: 'Le code postal est requis' })
+      .string()
       .trim()
       .min(1, { message: 'Le code postal est requis' }),
     country: z
-      .string({ required_error: 'Le pays est requis' })
+      .string()
       .trim()
       .min(1, { message: 'Le pays est requis' })
   }),
   emergencyContact: z.object({
     name: z
-      .string({ required_error: 'Le nom est requis' })
+      .string()
       .trim()
       .min(1, { message: 'Le nom est requis' }),
     relationship: z
-      .string({ required_error: 'La relation est requise' })
+      .string()
       .trim()
       .min(1, { message: 'La relation est requise' }),
     phone: z
-      .string({ required_error: 'Le numéro de téléphone est requis' })
+      .string()
       .trim()
       .min(1, { message: 'Le numéro de téléphone est requis' }),
     email: z
-      .string({ required_error: 'L\'email est requis' })
+      .string()
       .trim()
       .min(1, { message: 'L\'email est requis' })
       .email({ message: 'Veuillez entrer une adresse email valide' })

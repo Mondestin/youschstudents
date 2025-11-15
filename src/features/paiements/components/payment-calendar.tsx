@@ -173,7 +173,7 @@ export default function PaymentCalendar({ payments }: PaymentCalendarProps) {
                         )}
                       >
                         <span className="truncate">
-                          {payment.amount.toLocaleString('fr-FR')} €
+                          {payment.amount.toLocaleString('fr-FR')} FCFA
                         </span>
                       </Badge>
                     ))}

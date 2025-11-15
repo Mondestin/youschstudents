@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Plus, List, Columns2, Grid3x3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
-import { ViewType } from "@/hooks/useCalendar";
+import { ViewType } from "@/types/calendar";
 
 interface CalendarHeaderProps {
   currentDate: Date;

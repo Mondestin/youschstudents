@@ -15,6 +15,7 @@ interface CalendarHeaderProps {
   view: ViewType;
   onPrevious: () => void;
   onNext: () => void;
+  onAddEvent?: () => void;
   onViewChange: (view: ViewType) => void;
 }
 
@@ -25,6 +26,7 @@ export const CalendarHeader = ({
   view,
   onPrevious,
   onNext,
+  onAddEvent,
   onViewChange,
 }: CalendarHeaderProps) => {
   const today = new Date();
@@ -110,6 +112,12 @@ export const CalendarHeader = ({
             <span className="hidden xl:block">Mois</span>
           </Button>
         </div>
+        {onAddEvent && (
+          <Button onClick={onAddEvent} size="sm">
+            <IconPlus className="size-4" />
+            <span className="hidden xl:block">Ajouter un cours</span>
+          </Button>
+        )}
       </div>
     </div>
   );

@@ -42,16 +42,10 @@ const SUBJECTS = ['Mathématiques', 'Physique', 'Français', 'Anglais', 'Histoir
 
 // Form schema
 const justifyAbsenceSchema = z.object({
-  scope: z.enum(['whole_day', 'subject'], {
-    required_error: 'Veuillez sélectionner une option'
-  }),
+  scope: z.enum(['whole_day', 'subject']),
   subject: z.string().optional(),
-  startDate: z.date({
-    required_error: 'La date de début est requise'
-  }),
-  endDate: z.date({
-    required_error: 'La date de fin est requise'
-  }).optional(),
+  startDate: z.date(),
+  endDate: z.date().optional(),
   note: z
     .string()
     .min(1, { message: 'La note est requise' })
@@ -143,7 +137,8 @@ export default function JustifyAbsenceModal({
   };
 
   // Update form files when files state changes
-  const handleFilesChange = (newFiles: File[]) => {
+  const handleFilesChange = (value: File[] | ((prev: File[]) => File[])) => {
+    const newFiles = typeof value === 'function' ? value(files) : value;
     setFiles(newFiles);
     form.setValue('files', newFiles, { shouldValidate: false });
   };
