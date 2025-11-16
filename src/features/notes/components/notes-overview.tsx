@@ -38,7 +38,7 @@ export default function NotesOverview({ stats }: NotesOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">Moyenne Générale (GPA)</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">{stats.gpa.toFixed(2)} / 20</span>
             {isImproving ? (
@@ -58,7 +58,7 @@ export default function NotesOverview({ stats }: NotesOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">Moyenne de Classe</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">{stats.average.toFixed(2)} / 20</span>
             {isImproving ? (
@@ -80,7 +80,7 @@ export default function NotesOverview({ stats }: NotesOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">Classement</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">
               {stats.rank}<span className="text-lg text-muted-foreground">/{stats.totalStudents}</span>
@@ -102,7 +102,7 @@ export default function NotesOverview({ stats }: NotesOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">Évolution</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className={cn(
               "text-2xl font-bold",
@@ -117,7 +117,7 @@ export default function NotesOverview({ stats }: NotesOverviewProps) {
             )}
           </div>
           <p className="text-xs text-muted-foreground mt-1">
-            {isImproving ? 'Amélioration' : 'Baisse'} par rapport au trimestre précédent
+            {isImproving ? 'Amélioration' : 'Baisse'} vs trimestre précédent
           </p>
         </CardContent>
       </Card>

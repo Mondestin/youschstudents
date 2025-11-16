@@ -18,7 +18,7 @@ export default async function EmploiDuTempsPage() {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         {/* Part 1: Welcome message */}
         <div className="flex flex-col gap-2">
-          <h1 className="text-2xl font-semibold">
+          <h1 className="text-3xl font-bold tracking-tight">
             Bienvenue, {studentName}
           </h1>
           <p className="text-sm text-muted-foreground">

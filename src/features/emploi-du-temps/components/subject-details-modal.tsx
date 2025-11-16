@@ -51,9 +51,9 @@ const getAttendanceLabel = (status?: CalendarEvent['attendanceStatus']) => {
     case 'excused':
       return 'Votre absence est justifiée';
     case 'not_signed':
-      return 'Vous n\'avez pas encore signé la présence';
+      return 'Vous n\'avez pas encore signé l\'assiduité';
     default:
-      return 'Statut de présence non disponible';
+      return 'Statut d\'assiduité non disponible';
   }
 };
 
@@ -125,7 +125,7 @@ export default function SubjectDetailsModal({
           <div className="flex items-center gap-3 pt-2 border-t">
             <IconClipboardCheck className="h-5 w-5 text-muted-foreground" />
             <div className="flex-1">
-              <p className="text-sm font-medium mb-2">Statut de présence</p>
+                    <p className="text-sm font-medium mb-2">Statut d'assiduité</p>
               <div className="flex items-center gap-2 mb-3">
                 {getAttendanceBadge(event.attendanceStatus)}
                 <p className="text-sm text-muted-foreground">
@@ -138,7 +138,7 @@ export default function SubjectDetailsModal({
                   className="w-full"
                 >
                   <IconEdit className="h-4 w-4 mr-2" />
-                  Signer la présence
+                  Signer l'assiduité
                 </Button>
               )}
             </div>

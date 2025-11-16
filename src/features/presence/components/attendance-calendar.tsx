@@ -61,8 +61,8 @@ export default function AttendanceCalendar({ records }: AttendanceCalendarProps)
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Calendrier de présence</CardTitle>
-          <CardDescription>Vue mensuelle de votre présence</CardDescription>
+            <CardTitle>Calendrier d'assiduité</CardTitle>
+            <CardDescription>Vue mensuelle de votre assiduité</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-center h-64">

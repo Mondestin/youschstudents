@@ -38,7 +38,7 @@ export const navItems: NavItem[] = [
     items: []
   },
   {
-    title: 'Présence',
+    title: 'Assiduités',
     url: '/dashboard/etudiants/presence',
     icon: 'clipboardCheck',
     isActive: false,

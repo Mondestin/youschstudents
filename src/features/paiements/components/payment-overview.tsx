@@ -18,7 +18,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">Total Payé</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">
               {stats.totalPaid.toLocaleString('fr-FR')} FCFA
@@ -36,7 +36,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">En Attente</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">
               {stats.totalPending.toLocaleString('fr-FR')} FCFA
@@ -54,7 +54,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">En Retard</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold">
               {stats.totalOverdue.toLocaleString('fr-FR')} FCFA
@@ -72,7 +72,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">Prochain Paiement</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           {stats.nextPayment ? (
             <>
               <div className="flex items-baseline justify-between">
@@ -82,10 +82,7 @@ export default function PaymentOverview({ stats }: PaymentOverviewProps) {
                 <IconCreditCard className="h-8 w-8 text-muted-foreground" />
               </div>
               <p className="text-xs text-muted-foreground mt-1">
-                {stats.nextPayment.description}
-              </p>
-              <p className="text-xs text-muted-foreground mt-1">
-                Échéance: {format(new Date(stats.nextPayment.dueDate), 'd MMM yyyy', { locale: fr })}
+                {stats.nextPayment.description} • {format(new Date(stats.nextPayment.dueDate), 'd MMM yyyy', { locale: fr })}
               </p>
             </>
           ) : (

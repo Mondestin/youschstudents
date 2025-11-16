@@ -28,9 +28,9 @@ export default function AttendanceOverview({ stats }: AttendanceOverviewProps) {
       {/* Overall Attendance Rate */}
       <Card className="py-3 gap-3">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
-          <CardTitle className="text-sm font-medium">Taux de Présence</CardTitle>
+          <CardTitle className="text-sm font-medium">Taux d'assiduité</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className={cn("text-2xl font-bold", getAttendanceColor(stats.attendanceRate))}>
               {stats.attendanceRate.toFixed(1)}%
@@ -48,9 +48,9 @@ export default function AttendanceOverview({ stats }: AttendanceOverviewProps) {
       {/* Present Days */}
       <Card className="py-3 gap-3">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
-          <CardTitle className="text-sm font-medium">Présences</CardTitle>
+          <CardTitle className="text-sm font-medium">Assiduités</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold text-green-600">
               {stats.presentDays}
@@ -68,7 +68,7 @@ export default function AttendanceOverview({ stats }: AttendanceOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">Absences</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold text-red-600">
               {stats.absentDays}
@@ -86,7 +86,7 @@ export default function AttendanceOverview({ stats }: AttendanceOverviewProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
           <CardTitle className="text-sm font-medium">Retards</CardTitle>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
+        <CardContent className="px-4 pt-0 pb-3">
           <div className="flex items-baseline justify-between">
             <span className="text-2xl font-bold text-yellow-600">
               {stats.lateDays}

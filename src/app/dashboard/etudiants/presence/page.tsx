@@ -35,7 +35,7 @@ export default function PresencePage() {
     <PageContainer>
       <div className="flex flex-1 flex-col gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Présence</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Assiduités</h1>
           <p className="text-muted-foreground">
             Suivez votre assiduité et vos absences
           </p>
@@ -91,9 +91,9 @@ export default function PresencePage() {
           <TabsContent value="by-subject" className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Présence par matière</CardTitle>
+                <CardTitle>Assiduité par matière</CardTitle>
                 <CardDescription>
-                  Taux de présence détaillé par matière
+                  Taux d'assiduité détaillé par matière
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -107,7 +107,7 @@ export default function PresencePage() {
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <span>{subject.presentClasses} présences</span>
+                        <span>{subject.presentClasses} assiduités</span>
                         <span>•</span>
                         <span>{subject.totalClasses} cours au total</span>
                       </div>

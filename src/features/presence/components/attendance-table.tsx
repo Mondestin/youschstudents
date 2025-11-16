@@ -48,8 +48,8 @@ export default function AttendanceTable({ records }: AttendanceTableProps) {
       totalItems={filteredRecords.length}
       columns={attendanceColumns}
       defaultPageSize={10}
-      searchPlaceholder="Rechercher une présence..."
-      exportButtonText="Exporter les présences"
+      searchPlaceholder="Rechercher une assiduité..."
+      exportButtonText="Exporter les assiduités"
       paginationText={{
         showing: 'Affichage',
         to: 'à',

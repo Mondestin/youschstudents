@@ -211,7 +211,7 @@ export default function SignatureModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Signer la présence</DialogTitle>
+          <DialogTitle>Signer l'assiduité</DialogTitle>
           <DialogDescription>
             Dessinez votre signature et entrez le code de validation pour {subjectTitle}
           </DialogDescription>

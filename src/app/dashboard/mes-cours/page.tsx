@@ -34,7 +34,7 @@ export default async function MesCoursPage() {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
               <CardTitle className="text-sm font-medium">Cours inscrits</CardTitle>
             </CardHeader>
-            <CardContent className="px-4 pt-0">
+            <CardContent className="px-4 pt-0 pb-3">
               <div className="flex items-baseline justify-between">
                 <span className="text-2xl font-bold">{mockCourses.length}</span>
                 <IconBook className="h-8 w-8 text-muted-foreground" />
@@ -49,7 +49,7 @@ export default async function MesCoursPage() {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
               <CardTitle className="text-sm font-medium">Devoirs en attente</CardTitle>
             </CardHeader>
-            <CardContent className="px-4 pt-0">
+            <CardContent className="px-4 pt-0 pb-3">
               <div className="flex items-baseline justify-between">
                 <span className="text-2xl font-bold text-yellow-600">{totalAssignments}</span>
                 <IconClipboardCheck className="h-8 w-8 text-muted-foreground" />
@@ -64,7 +64,7 @@ export default async function MesCoursPage() {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
               <CardTitle className="text-sm font-medium">Semestre actuel</CardTitle>
             </CardHeader>
-            <CardContent className="px-4 pt-0">
+            <CardContent className="px-4 pt-0 pb-3">
               <div className="flex items-baseline justify-between">
                 <span className="text-2xl font-bold">Semestre 1</span>
                 <IconCalendar className="h-8 w-8 text-muted-foreground" />

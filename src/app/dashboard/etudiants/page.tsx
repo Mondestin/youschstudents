@@ -29,8 +29,8 @@ export default async function EtudiantsPage() {
       icon: Icons.reportMoney
     },
     {
-      title: 'Présence',
-      description: 'Gérer et consulter la présence des étudiants',
+      title: 'Assiduités',
+      description: 'Gérer et consulter l'assiduité des étudiants',
       url: '/dashboard/etudiants/presence',
       icon: Icons.clipboardCheck
     }
