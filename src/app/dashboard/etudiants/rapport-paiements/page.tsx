@@ -25,17 +25,17 @@ export default function RapportPaiementsPage() {
   return (
     <PageContainer>
       <div className="flex flex-1 flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Rapport de paiements</h1>
-            <p className="text-muted-foreground">
-              Gérez et consultez vos paiements et factures
-            </p>
-          </div>
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Rapport de paiements</h1>
+          <p className="text-muted-foreground">
+            Gérez et consultez vos paiements et factures
+          </p>
         </div>
 
         {/* Payment Overview */}
-        <PaymentOverview stats={mockPaymentStats} />
+        <div className="mt-4">
+          <PaymentOverview stats={mockPaymentStats} />
+        </div>
 
         {/* Main Content */}
         <Tabs defaultValue="history" className="space-y-4">

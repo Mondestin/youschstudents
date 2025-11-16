@@ -30,7 +30,7 @@ export default async function EtudiantsPage() {
     },
     {
       title: 'Assiduités',
-      description: 'Gérer et consulter l'assiduité des étudiants',
+      description: "Gérer et consulter l'assiduité des étudiants",
       url: '/dashboard/etudiants/presence',
       icon: Icons.clipboardCheck
     }

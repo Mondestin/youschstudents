@@ -15,17 +15,17 @@ export default async function NotesPage() {
   return (
     <PageContainer>
       <div className="flex flex-1 flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Notes</h1>
-            <p className="text-muted-foreground">
-              Consultez vos notes et votre progression académique
-            </p>
-          </div>
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Notes</h1>
+          <p className="text-muted-foreground">
+            Consultez vos notes et votre progression académique
+          </p>
         </div>
 
         {/* Overview Stats */}
-        <NotesOverview stats={mockGradeStats} />
+        <div className="mt-4">
+          <NotesOverview stats={mockGradeStats} />
+        </div>
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="overview" className="space-y-4">

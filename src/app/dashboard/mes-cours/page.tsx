@@ -19,17 +19,16 @@ export default async function MesCoursPage() {
   return (
     <PageContainer>
       <div className="flex flex-1 flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Mes cours</h1>
-            <p className="text-muted-foreground">
-              Gérez vos cours, devoirs et matériaux pédagogiques
-            </p>
-          </div>
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Mes cours</h1>
+          <p className="text-muted-foreground">
+            Gérez vos cours, devoirs et matériaux pédagogiques
+          </p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="mt-4">
+          <div className="grid gap-4 md:grid-cols-3">
           <Card className="py-3 gap-3">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-4">
               <CardTitle className="text-sm font-medium">Cours inscrits</CardTitle>
@@ -74,6 +73,7 @@ export default async function MesCoursPage() {
               </p>
             </CardContent>
           </Card>
+          </div>
         </div>
 
         {/* Courses List */}
